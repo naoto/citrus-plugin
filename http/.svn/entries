@@ -1,0 +1,54 @@
+8
+
+dir
+34413
+http://svn.coderepos.org/share/lang/ruby/citrus/trunk/plugins/http
+http://svn.coderepos.org/share
+
+
+
+2008-09-19T12:10:15.916273Z
+19622
+drry
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d0d07461-0603-4401-acd4-de1884942a52
+
+default.rb
+file
+
+
+
+
+2008-10-28T12:59:22.000000Z
+6b96f244396b6319be0c19456cb436f5
+2008-09-19T12:10:15.916273Z
+19622
+drry
+has-props
+
+mixi.rb
+file
+
+
+
+
+2008-10-28T12:59:22.000000Z
+04e1d71883fa95df3b5f8aab0527ca15
+2008-07-03T16:35:16.851708Z
+15137
+shunirr
+has-props
+
