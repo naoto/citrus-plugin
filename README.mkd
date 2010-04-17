@@ -50,8 +50,8 @@ Plugin
 4. プラグインは Citrus 起動時にインスタンスが生成される
 5. initialize に渡される引数は以下の 2 つ
    
-       ・Citrusクラスオブジェクト
-       ・config 内容の配列
+        ・Citrusクラスオブジェクト
+        ・config 内容の配列
 
 6. Citrus::Plugin を継承して initialize を定義する場合はかならず super を呼び出してください.
    もしくは @core に引数の Citrus クラスオブジェクトを @config に 引数の config 内容の配列を代入してください.
@@ -64,18 +64,18 @@ Plugin
 
 7. Citrus のメソッドが呼び出されるタイミングは 13 回あります
     
-       ・on_uped      # ?
-       ・on_downed    # ?
-       ・on_privmsg   # 通常のメッセージが POST された
-       ・on_talk      # TALKにてメッセージが POST された
-       ・on_notice    # Notice にてメッセージが POST された
-       ・on_join      # チャンネルに JOIN した
-       ・on_part      # チャンネルから PART した
-       ・on_kick      # チャンネルから KICK された
-       ・on_invite    # チャンネルへ招待された
-       ・on_ctcp      # IRC SERVER から PING がきた
-       ・on_mode      # モードを変更した
-       ・on_nick      # ニックネームを変更した
-       ・on_message   # ?
+        ・on_uped      # ?
+        ・on_downed    # ?
+        ・on_privmsg   # 通常のメッセージが POST された
+        ・on_talk      # TALKにてメッセージが POST された
+        ・on_notice    # Notice にてメッセージが POST された
+        ・on_join      # チャンネルに JOIN した
+        ・on_part      # チャンネルから PART した
+        ・on_kick      # チャンネルから KICK された
+        ・on_invite    # チャンネルへ招待された
+        ・on_ctcp      # IRC SERVER から PING がきた
+        ・on_mode      # モードを変更した
+        ・on_nick      # ニックネームを変更した
+        ・on_message   # ?
 
 8. 他にもIRC コマンドで on_hogehoge とメソッドを定義すればそのコマンドが実行されたタイミングで呼び出しが可能です.
