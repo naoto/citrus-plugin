@@ -12,8 +12,7 @@ class Dictionary < Citrus::Plugin
 	def on_privmsg(prefix, channel, message)
     return if !@config["channels"].nil? && !@config["channels"].include?(channel)
 
-		if /^([a-zA-Z])2{0,}([a-zA-Z])\s+(.+)$/ =~ message
-      return if "#{$1}#{$2}" == "rb"
+		if /^(e|j)2{0,}(j|e)\s(.+)$/ =~ message
 	    j = conv($3, $1, $2)
 		  if j.empty?
 				notice(channel, "スペルミス？")
