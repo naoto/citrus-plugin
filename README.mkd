@@ -79,3 +79,9 @@ Plugin
         ・on_message   # ?
 
 8. 他にもIRC コマンドで on_hogehoge とメソッドを定義すればそのコマンドが実行されたタイミングで呼び出しが可能です.
+
+
+TODO
+---------
+
+1. hpricot => Nokogiri
