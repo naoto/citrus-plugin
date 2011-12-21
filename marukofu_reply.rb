@@ -1,7 +1,7 @@
 require 'plugins/marukofu-tool.rb'
 
 class MarukofuReply < Citrus::Plugin
-  
+
 	def on_privmsg(prefix, channel, message)
     @config["replies"].each do |r|
 		  if message =~ /^#{r["words"]}/ &&

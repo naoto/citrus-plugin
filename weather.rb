@@ -26,14 +26,14 @@ class Weather < Citrus::Plugin
 
   private
   def getWeather(city)
-    
+
     h = Nokogiri::HTML(Kconv.toutf8(open(URI.escape("http://www.google.co.jp/search?q=週間天気+#{city}")).read))
 
     weather = []
     h.search("img").each{ |i|
       weather << "の天気は#{i["title"]}" unless i["title"].nil?
     }
-    
+
 
     censer = []
     h.search("table.ts.std div nobr").each{ |n|

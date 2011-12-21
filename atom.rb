@@ -5,7 +5,7 @@ require 'kconv'
 $KCODE = 'u'
 
 class Atom < Citrus::Plugin
-    
+
   def initialize(*args)
     super
     @customWord = YAML.load_file('plugins/atom.yaml')
@@ -16,18 +16,18 @@ class Atom < Citrus::Plugin
 		@config["replies"].each do |r|
 			if message =~ /(#{r["words"]})/ &&
 			   (!r["channels"] || r["channels"].include?(channel))
-        
+
         syukugaword = customizer($2)
 
 				notice channel, syukugaword
 			end
 		end
 	end
-  
+
   def preprocess(words)
-    
+
     @customWord.each{ |pattern, replise|
-       words.gsub!(/#{pattern}/,replise) 
+       words.gsub!(/#{pattern}/,replise)
     }
   end
 
@@ -44,18 +44,18 @@ class Atom < Citrus::Plugin
   def customizer(str)
 
     preprocess str
-    ret = "" 
+    ret = ""
     strary = str.split(/(#{@reexception})/).each { |s|
       if s =~ /(#{@reexception})/
         ret << s
         next
       end
-      
+
       if s !~ /\S/
         ret << s
         next
       end
-      
+
       nextflg = false
       parse = MeCab::Tagger.new.parse(s)
       parsea = parse.split(/\n/)
@@ -78,14 +78,14 @@ class Atom < Citrus::Plugin
               next_string = $1
               next_yomi = $3
               next_type = $2
-              
+
               if next_type == '助動詞'
                 yomi << next_yomi
                 nextflg = true
               end
             }
           end
-          
+
           if type =~ /副詞|助動詞|形容詞|接続詞|助詞/ && string =~ /^[ぁ-ん]+$/
             ret << string
           elsif yomi
@@ -100,7 +100,7 @@ class Atom < Citrus::Plugin
   end
 
   def atomaizer (yomi)
-    yomi.gsub!(/ー+/,"ー") 
+    yomi.gsub!(/ー+/,"ー")
     small_word = "ャュョッー"
     word_length = yomi.to_s.split(//).size
 

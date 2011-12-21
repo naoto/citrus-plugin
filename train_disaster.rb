@@ -4,7 +4,7 @@ require 'hpricot'
 class TrainDisaster < Citrus::Plugin
 
 	def on_privmsg(prefix, channel, message)
-    return if !@config["channels"].nil? && !@config["channels"].include?(channel)		
+    return if !@config["channels"].nil? && !@config["channels"].include?(channel)
     if /#{@config["prefix"]}/ =~ message
       html = Hpricot(open("http://transit.map.yahoo.co.jp/diainfo/area?area=3"))
       train = $1

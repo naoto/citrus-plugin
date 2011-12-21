@@ -23,7 +23,7 @@ class Cookpad < Citrus::Plugin
 
     html = Nokogiri::HTML(open(URI.escape("#{baseuri}/レシピ/#{menu}")))
     elem = html.search("a.recipe-title").sort_by{rand}[0]
-    
+
     resipi = []
     title = ""
     unless elem.nil?

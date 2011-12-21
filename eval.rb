@@ -13,7 +13,7 @@ class Eval < Citrus::Plugin
 	end
 
 	def on_privmsg(prefix, channel, message)
-    return if !@config["channels"].nil? && !@config["channels"].include?(channel) 
+    return if !@config["channels"].nil? && !@config["channels"].include?(channel)
 		case message
 		when /^#{Regexp.quote(@prefix)}(.+)$/i
 			code = Regexp.last_match[1].taint.gsub(/\\([^\\])/){ $1 }

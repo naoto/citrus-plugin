@@ -3,13 +3,13 @@ require 'kconv'
 class Naruto < Citrus::Plugin
 
   def on_privmsg(prefix, channel, message)
-    
+
     if message =~ /(#{@config["words"]})/ &&
        (!@config["channels"] || @config["channels"].include?(channel))
 
       users = []
       @core.channels[channel][:modes].each { |mode, user|
-        users << user 
+        users << user
       }
 
       diff = @core.channels[channel][:users] - users

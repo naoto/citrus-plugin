@@ -4,7 +4,7 @@ class RandomReply < Citrus::Plugin
 		@config["replies"].each do |r|
 			if message =~ /(#{r["words"]})/ &&
 			   (!r["channels"] || r["channels"].include?(channel))
-        
+
 				#notice channel, r["reply"].sort_by{rand}[0]
         r["reply"].sort_by{rand}[0].split(/\s/).each { |talk|
           notice channel, talk
