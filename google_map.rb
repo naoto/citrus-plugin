@@ -22,7 +22,7 @@ class GoogleMap < Citrus::Plugin
 	end
 
 	def on_privmsg(prefix, channel, message)
-    return if !@config["channels"].nil? && !@config["channels"].include?(channel) 
+    return if !@config["channels"].nil? && !@config["channels"].include?(channel)
 		case message
 		when /
 			^

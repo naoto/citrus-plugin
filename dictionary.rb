@@ -3,7 +3,7 @@ require "nokogiri"
 require "open-uri"
 
 class Dictionary < Citrus::Plugin
-  
+
   def initialize(*args)
     super
     @code = {"e" => "en", "j" => "ja", "c" => "zh-CN", "k" => "ko", "f" => "fr", "a" => "ar"}
@@ -24,10 +24,10 @@ class Dictionary < Citrus::Plugin
 
 	private
 	def conv(e, to, from)
-		result = "" 
+		result = ""
 		uri = URI("http://www.google.com/translate_t?langpair=#{@code[to]}%7C#{@code[from]}&text=#{URI::escape(e)}")
 	  doc = Nokogiri::HTML(open(uri))
-      
+
 		doc.search("span#result_box/span").each do |e|
 	  	result << e.inner_text
 	  end

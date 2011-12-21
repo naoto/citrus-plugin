@@ -6,7 +6,7 @@ require 'kconv'
 class GoogleTrain < Citrus::Plugin
 
 	def on_privmsg(prefix, channel, message)
-    return if !@config["channels"].nil? && !@config["channels"].include?(channel)		
+    return if !@config["channels"].nil? && !@config["channels"].include?(channel)
     if /#{@config["prefix"]}/ =~ message
 
       station = $1

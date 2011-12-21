@@ -1,6 +1,6 @@
 
 class Tsukkomi < Citrus::Plugin
-  
+
 	def on_privmsg(prefix, channel, message)
     return if !@config["channels"].nil? && !@config["channels"].include?(channel)
     words = []

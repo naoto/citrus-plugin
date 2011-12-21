@@ -49,7 +49,7 @@ Plugin
 
 4. プラグインは Citrus 起動時にインスタンスが生成される
 5. initialize に渡される引数は以下の 2 つ
-   
+
         ・Citrusクラスオブジェクト
         ・config 内容の配列
 
@@ -63,7 +63,7 @@ Plugin
         end
 
 7. Citrus のメソッドが呼び出されるタイミングは 13 回あります
-    
+
         ・on_uped      # ?
         ・on_downed    # ?
         ・on_privmsg   # 通常のメッセージが POST された

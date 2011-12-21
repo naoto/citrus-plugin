@@ -108,12 +108,12 @@ class LogSearch < Citrus::Plugin
   private
   def bookmark(channel,phrase)
     sql = "SELECT created_at,user,comment FROM messages WHERE channel='#{channel}' AND comment like '%http://%' "
-    
+
     phrase.split(/\s+/).each { |word|
       word.gsub!(/'/){"''"}
       sql << "AND (comment like '%#{word}%' OR user like '%#{word}%' OR title like '%#{word}%') "
     }
-    
+
     sql << 'ORDER BY id DESC'
 
     result = @db.execute(sql) unless phrase.empty?
@@ -122,7 +122,7 @@ class LogSearch < Citrus::Plugin
 
   private
   def newtimeline(channel,count)
-    
+
     sql = "SELECT created_at,user,comment FROM messages WHERE channel='#{channel}' order by id DESC limit #{count}"
     result = @db.execute(sql) unless count.empty?
 
@@ -142,7 +142,7 @@ class LogSearch < Citrus::Plugin
       sql << "user='#{words}' ORDER BY id DESC"
 
     else
-      
+
       words = phrase
       if /^count\((.+)\)/ === phrase
         sql = "SELECT count(*) FROM messages WHERE channel='#{channel}' AND "

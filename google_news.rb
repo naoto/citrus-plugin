@@ -12,7 +12,7 @@ class GoogleNews < Citrus::Plugin
 			<http://www.google.com/accounts/TOS>
 		DESCRIPTION
 	end
-  
+
  def initialize(*args)
     super
     @prefix = @config['prefix'] || '(の)?ニュース教えて'
@@ -62,5 +62,5 @@ class GoogleNews < Citrus::Plugin
       messages << message
     end
     return messages
-  end 
+  end
 end

@@ -5,7 +5,7 @@ class Twitter < Citrus::Plugin
 
 	def on_privmsg(prefix, channel, message)
     return if !@config["channels"].nil? && !@config["channels"].include?(channel)
-		
+
     if /#{@config["prefix"]}/ =~ message
       user = $2
       cnt = $3.to_i || 0

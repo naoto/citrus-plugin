@@ -13,7 +13,7 @@ class AmazonSearch < Citrus::Plugin
 			<http://www.google.com/accounts/TOS>
 		DESCRIPTION
 	end
-  
+
   def initialize(*args)
     super
     @prefix = @config['prefix'] || 'as'
@@ -53,7 +53,7 @@ class AmazonSearch < Citrus::Plugin
     document = Nokogiri::HTML(Kconv.kconv(open(uri).read,Kconv::UTF8,Kconv::ASCII))
     document.search("h3.r").each { |node|
       break if result.size >= number
-      
+
       price = get_price(node.at('a')['href'])
       link = node.at('a')['href']
       if /(\/dp\/[\w]+)/ =~ link
